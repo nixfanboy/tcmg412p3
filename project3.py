@@ -1,3 +1,17 @@
+import urllib.request
+import os
+
+print("checking for log file")
+
+if (os.path.isfile('./cache.log') == False ):
+  print('Log file not downloaded, downloading now...')
+  url = 'https://s3.amazonaws.com/tcmg476/http_access_log'  
+  urllib.request.urlretrieve(url, 'cache.log')
+  print('log downloaded, beginning log inspection...')
+else:
+  print('cache log is already downloaded')
+  print('beginning log inspection...')
+
 # Count Requests
 total_requests = 0
 req_year = 0
